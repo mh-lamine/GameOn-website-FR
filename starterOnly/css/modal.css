@@ -14,7 +14,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+  background-image: url("../img/background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -26,14 +26,24 @@ p {
   padding: 0.5vw;
 }
 
-img {
-  padding-right: 1rem;
-}
-
 .topnav {
   overflow: hidden;
   margin: 3.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+@media screen and (max-width: 540px){
+  .topnav{
+    flex-direction: column;
+    align-items:normal;
+  }
+  .topnav.responsive a.icon{
+    transform: translateY(2.5em);
+  }
+}
+
 .header-logo {
     float: left;
 }
@@ -68,7 +78,7 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1120px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -97,7 +107,6 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
   }
 } 
 
@@ -113,6 +122,10 @@ main {
   text-align: justify;
 
 
+}
+
+.successMsg{
+  display: none;
 }
 
 .modal-btn {
@@ -226,12 +239,6 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -456,12 +463,14 @@ input[data-error]::after {
 }
 .hero-img {
   grid-column: span 8;
+  width: 100%;
 }
 .hero-img img {
   width: 100%;
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover;
 }
 .copyrights {
   color: #fe142f;
@@ -478,15 +487,19 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 990px) {
   .hero-section {
-    display: block;
+    display: flex;
     box-shadow: unset;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .hero-content {
     background: #fff;
     color: #000;
     padding: 20px;
+    min-width: 300px;
   }
   .hero-content::after {
     content: unset;
@@ -495,16 +508,19 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    max-width: 100%;
+    font-size: 3rem;
     white-space: normal;
   }
   .hero-text {
-    width: unset;
+    width: fit-content;
     font-size: 1.5rem;
   }
   .hero-img img {
     border-radius: 10px;
     margin-top: 40px;
+    max-width: 100%;
+    height: auto;
   }
   .hero-section > .btn-signup {
     display: block;
@@ -527,3 +543,7 @@ footer {
   }
 }
 
+.error{
+  font-size: 14px;
+  color: red;
+}
