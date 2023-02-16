@@ -24,29 +24,29 @@ function launchModal() {
 
 const closeBtn = document.querySelector(".close");
 
-closeBtn.addEventListener("click", closeModal);
+closeBtn.addEventListener("click", closeModal); 
 
 function closeModal() {
-  modalbg.style.display = "none";
+  modalbg.style.display = "none"; // ajoute le style display: none; à la classe modalbg
 }
 
 // verification des champs
 
 function setError(element, message) {
-  const formData = element.parentElement;
-  const errorMsg = formData.querySelector(".error");
-  errorMsg.innerText = message;
+  const formData = element.parentElement; // prend la div parente de l'element
+  const errorMsg = formData.querySelector(".error"); // prend la div de classe error presente dans la div de l'element
+  errorMsg.innerText = message; // affiche le message d'erreur
 }
 
 function hideErrorMsg(element) {
-  const formData = element.parentElement;
+  const formData = element.parentElement; 
   const errorMsg = formData.querySelector(".error");
-  errorMsg.innerText = "";
+  errorMsg.innerText = ""; // efface le mesqsage d'erreur
 }
 
 function isValidEmail(email) {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
+  return re.test(String(email).toLowerCase()); // verifie que le format de l'adresse mail est valide
 }
 
 function validateInputs(){
@@ -92,9 +92,10 @@ function validateInputs(){
 }
 
 const form = document.getElementById("form").addEventListener("submit", e => {
-  e.preventDefault();
+  e.preventDefault(); // bloque la soumission automatique du formulaire
   if (validateInputs()){
-    document.getElementById("form-card").innerHTML = "Merci ! Votre réservation a été reçue.";
+    document.getElementById("form-card").innerHTML = "Merci ! Votre réservation a été reçue."; 
+    // affiche le message de reussite si toutes les entrées sont valides
   };
 
 });
