@@ -80,22 +80,16 @@ function validateInputs(){
     setError(email, "Veuillez entrer une adresse mail valide");
     errorCount++;
   }
-
+  
   if (dob == "") {
     setError(birthdate, "Veuillez entrer une date de naissance");
+    errorCount++;
   } else {
-    const birthdateArray = dob.split("-");
-    console.log(birthdateArray[1]);
     const currentYear = new Date().getFullYear(); 
-    if (birthdateArray[2] == "") {
-      setError(birthdate, "Veuillez entrer une date de naissance complète")
-    }
-    if (birthdateArray[1] == "") {
-      setError(birthdate, "Veuillez entrer une date de naissance complète")
-
-    }
-    if (parseInt(birthdateArray[0]) < 1923 || parseInt(birthdateArray[0]) > currentYear) {
-      setError(birthdate, "Veuillez entrer une date de naissance valide")
+    const birthdateArray = dob.split("-");
+    if (parseInt(birthdateArray[0]) < currentYear-100 || parseInt(birthdateArray[0]) > currentYear-12) {
+      setError(birthdate, "Veuillez entrer votre date de naissance")
+      errorCount++;
     }
   }
     
