@@ -87,14 +87,13 @@ function validateInputs(){
     const birthdateArray = dob.split("-");
     console.log(birthdateArray[1]);
     const currentYear = new Date().getFullYear(); 
-    // if (birthdateArray[2] == "") {
-    //   setError(birthdate, "nope")
-    //   console.log("nope")
-    // }
-    // if (birthdateArray[1] == "") {
-    //   setError(birthdate, "nope")
-    //   console.log("nope")
-    // }
+    if (birthdateArray[2] == "") {
+      setError(birthdate, "Veuillez entrer une date de naissance complète")
+    }
+    if (birthdateArray[1] == "") {
+      setError(birthdate, "Veuillez entrer une date de naissance complète")
+
+    }
     if (parseInt(birthdateArray[0]) < 1923 || parseInt(birthdateArray[0]) > currentYear) {
       setError(birthdate, "Veuillez entrer une date de naissance valide")
     }
